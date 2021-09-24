@@ -1,0 +1,208 @@
+body {
+	margin: 0;
+	background-image: url(./imgFondo.jpg);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	height: 100vh;
+	width: 100%;
+}
+.containerHome {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+
+	.container {
+		display: flex;
+		background: #130202b8;
+		width: 100%;
+		margin: 0rem 2rem;
+		border: 2px solid #190909;
+		border-radius: 6px;
+		box-shadow: rgba(255, 255, 255, 0.16) 0px 3px 6px,
+			rgba(187, 187, 187, 0.23) 0px 3px 6px;
+		.controls {
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 5px;
+			text-align: center;
+			line-height: 1;
+			backdrop-filter: blur(7px);
+			-webkit-backdrop-filter: blur(10px);
+			width: 30%;
+			padding: 18px;
+			margin: 20px 5px 20px 20px;
+			width: 100%;
+			.one {
+				$pale-white: #000000;
+				display: flex;
+				padding-top: 2rem;
+				@mixin anime($time, $cubic) {
+					-webkit-transition: all $time $cubic;
+					-moz-transition: all $time $cubic;
+					-o-transition: all $time $cubic;
+					transition: all $time $cubic;
+				}
+				.boxsteps {
+					h4 {
+						margin: 0;
+					}
+				}
+				.boxbuttons {
+					display: flex;
+					width: 100px;
+					margin: 0rem 0.3rem;
+				}
+				#button {
+					padding: 6px;
+
+					color: $pale-white;
+					font-size: 1em;
+					position: absolute;
+					border: rgb(56, 25, 4) 2px solid;
+					overflow: hidden;
+					@include anime(0.6s, (cubic-bezier(0.55, 0, 0.1, 1)));
+					cursor: pointer;
+					box-shadow: 0px 0px 0px #fff;
+					&:hover {
+						color: rgb(139, 107, 107);
+						font-weight: 700;
+						text-shadow: 0px 8px 6px rgba(0, 0, 0, 0.9);
+						box-shadow: 8px 8px 0px #fff, -8px -8px 0px #fff;
+					}
+					&:hover .one {
+						opacity: 1;
+						transform: translate3d(0px, 0px, 0px);
+					}
+					&:hover .two {
+						transform: translate3d(0px, 0px, 0px);
+					}
+					&:hover .three {
+						transform: translate3d(0px, 0px, 0px);
+					}
+					&:hover .four {
+						transform: translate3d(0px, 0px, 0px);
+					}
+					.ring {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						background: transparent;
+						top: 0;
+						left: 0;
+						transform: translate3d(0px, 90px, 0px);
+					}
+					.one {
+						background-color: #50210b;
+						@include anime(0.3s, (cubic-bezier(0.55, 0, 0.1, 1)));
+						z-index: -3;
+						z-index: -4;
+					}
+					.two {
+						background-color: #b46a15;
+						@include anime(0.5s, (cubic-bezier(0.55, 0, 0.1, 1)));
+						z-index: -3;
+					}
+					.three {
+						background-color: #522017;
+						z-index: -2;
+						@include anime(0.7s, (cubic-bezier(0.55, 0, 0.1, 1)));
+						z-index: -3;
+					}
+					.four {
+						background-color: #3d1c08;
+						z-index: -1;
+						@include anime(0.9s, (cubic-bezier(0.55, 0, 0.1, 1)));
+						z-index: -3;
+					}
+				}
+			}
+			.description {
+				margin-top: 1rem;
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				border: 1px solid #3d1c08;
+				border-radius: 5px;
+				padding: 0px 0px 1rem 0px;
+			}
+		}
+		.resume {
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 5px;
+			text-align: center;
+			line-height: 1;
+			margin: 20px 20px 20px 5px;
+			backdrop-filter: blur(7px);
+			-webkit-backdrop-filter: blur(10px);
+			padding: 11px 5px;
+			width: 50%;
+		}
+	}
+}
+
+$primary: #472b01;
+$secondary: #3a2d05;
+$white: rgb(0, 0, 0);
+$gray: #272727;
+.form__group {
+	position: relative;
+	padding: 15px 0 0;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.form__field {
+	font-family: inherit;
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid $gray;
+	outline: 0;
+	font-size: 0.9rem;
+	color: $white;
+	padding: 7px 0;
+	background: transparent;
+	transition: border-color 0.2s;
+
+	&::placeholder {
+		color: transparent;
+	}
+
+	&:placeholder-shown ~ .form__label {
+		font-size: 1.3rem;
+		cursor: text;
+		top: 20px;
+	}
+}
+
+.form__label {
+	position: absolute;
+	top: 0;
+	display: block;
+	transition: 0.5s;
+	font-size: 1rem;
+	color: $gray;
+}
+
+.form__field:focus {
+	~ .form__label {
+		position: absolute;
+		top: 0;
+		display: block;
+		transition: 0.5s;
+		font-size: 1rem;
+		color: #000;
+		font-weight: 700;
+	}
+	padding-bottom: 6px;
+	font-weight: 700;
+	border-width: 3px;
+	border-image: linear-gradient(to right, $primary, $secondary);
+	border-image-slice: 1;
+}
+/* reset input */
+.form__field {
+	&:required,
+	&:invalid {
+		box-shadow: none;
+	}
+}
